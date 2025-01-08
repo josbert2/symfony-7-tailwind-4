@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "./library/colors.css";
+
+  /*
+    Namespace	Utilities
+
+    --color-*	Color utilities like bg-white, text-black, or fill-blue-500
+    --font-*	Font family utilities like font-sans
+    --text-*	Font size utilities like text-sm
+    --font-weight-*	Font weight utilities like font-bold
+    --tracking-*	Letter spacing utilities like tracking-tight
+    --leading-*	Line height utilities like leading-relaxed
+    --spacing-*	Spacing and sizing utilities like pt-5, mr-2, and h-8
+    --breakpoint-*	Breakpoint variants like md:*  and lg:*
+    --container-*	Container query variants like @md:* and width utilities like w-sm and max-w-lg
+    --radius-*	Border radius utilities like rounded-md
+    --shadow-*	Box shadow utilities like shadow-lg
+    --inset-shadow-*	Inset box shadow utilities like inset-shadow-sm
+    --drop-shadow-*	Drop shadow utilities like drop-shadow-xl
+    --ease-*	Transition timing function utilities like ease-out
+    --animate-*	Animation utilities like animate-spin
+  */
+
+

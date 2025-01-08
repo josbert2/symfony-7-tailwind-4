@@ -1,0 +1,232 @@
+
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: "Avenir";
+  src: url('../fonts/Avenir/AvenirRegular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@utility title-h1 {
+  font-size: 3.5rem;
+  line-height: 4rem;
+  letter-spacing: '-0.01em';
+  font-weight: 500;
+}
+.text-title-h1{
+  @apply title-h1;
+}
+  
+  
+  @utility title-h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    letter-spacing: '-0.01em';
+    font-weight: 500;
+  }
+  .text-title-h2{
+    @apply title-h2;
+  }
+  
+  
+  @utility title-h3 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    letter-spacing: '-0.01em';
+    font-weight: 500;
+  }
+  .text-title-h3{
+    @apply title-h3;
+  }
+  
+  @utility title-h4 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: -0.005em;
+    font-weight: 500;
+  }
+  .text-title-h4{
+    @apply title-h4;
+  }
+  
+  @utility title-h5 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: 0em;
+    font-weight: 500;
+  }
+  .text-title-h5{
+    @apply title-h5;
+  }
+  
+  @utility title-h6 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    letter-spacing: 0em;
+    font-weight: 500;
+  }
+  .text-title-h6{
+    @apply title-h6;
+  } 
+  
+  @utility label-xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: '-0.015em';
+    font-weight: 500;
+  }
+  .text-label-xl{
+    @apply label-xl;
+  }
+  
+  @utility label-lg {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: '-0.015em';
+    font-weight: 500;
+  }
+  .text-label-lg{
+    @apply label-lg;
+  } 
+  
+  @utility label-md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.011em;
+    font-weight: 500;
+  }
+  .text-label-md{
+    @apply label-md;
+  } 
+  
+  @utility label-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    letter-spacing: '-0.006em';
+    font-weight: 500;
+  }
+  .text-label-sm{
+    @apply label-sm;
+  }  
+  
+  @utility label-xs {
+    font-size: .75rem;
+    line-height: 1rem;
+    letter-spacing: 0em;
+    font-weight: 500;
+  }
+  .text-label-xs{
+    @apply label-xs;
+  }   
+  
+  @utility paragraph-xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    letter-spacing: '-0.015em';
+    font-weight: 400;
+  }
+  .text-paragraph-xl{
+    @apply paragraph-xl;
+  }
+  
+  @utility paragraph-lg {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    letter-spacing: '-0.015em';
+    font-weight: 400;
+  }
+  .text-paragraph-lg{
+    @apply paragraph-lg;
+  }
+  
+  @utility paragraph-md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.011em;
+    font-weight: 400;
+  }
+  .text-paragraph-md{
+    @apply paragraph-md;
+  }
+  
+  @utility paragraph-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    letter-spacing: '-0.006em';
+    font-weight: 400;
+  }
+  .text-paragraph-sm{
+    @apply paragraph-sm;
+  }
+  
+  @utility paragraph-xs {
+    font-size: .75rem;
+    line-height: 1rem;
+    letter-spacing: 0em;
+    font-weight: 400;
+  }
+  .text-paragraph-xs{
+    @apply paragraph-xs;
+  }
+  
+  @utility subheading-md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .text-subheading-md{
+    @apply subheading-md;
+  }
+  
+  @utility subheading-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    letter-spacing: '0.06em';
+    font-weight: 500;
+  }
+  .text-subheading-sm{
+    @apply subheading-sm;
+  }
+  
+  @utility subheading-xs {
+    font-size: .75rem;
+    line-height: 1rem;
+    letter-spacing: '0.04em';
+    font-weight: 500;
+  }
+  .text-subheading-xs{
+    @apply subheading-xs;
+  }
+  
+  @utility subheading-2xs {
+    font-size: .6875rem;
+    line-height: .75rem;
+    letter-spacing: '0.02em';
+    font-weight: 500;
+  }
+  .text-subheading-2xs{
+    @apply subheading-2xs;
+  }
+  
+  @utility doc-label {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    letter-spacing: '-0.015em';
+    font-weight: 500;
+  }
+  .text-doc-label{
+    @apply doc-label;
+  }
+  
+  @utility doc-paragraph {
+    font-size: 1.125rem;
+    line-height: 2rem;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+  .text-doc-paragraph{
+    @apply doc-paragraph;
+  }

@@ -1,0 +1,47 @@
+version: '3'
+services:
+  symfony_web:
+    build:
+      context: ./
+    container_name: symfony-web
+    ports:
+      - "8487:80"
+      - "8443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./dev_local_config/ssl:/etc/apache2/ssl
+      - ./dev_local_config/apache-config:/etc/apache2/sites-available
+    networks:
+      - symfony_network
+    environment:
+      PHP_MEMORY_LIMIT: 4G
+
+  symfony_mysql:
+    image: mariadb:10.4.3
+    container_name: symfony-mysql
+    ports:
+      - "3307:3308"
+    environment:
+      MYSQL_ROOT_PASSWORD: symfony_root
+      MYSQL_DATABASE: symfony_database
+      MYSQL_USER: symfony_user
+      MYSQL_PASSWORD: symfony_password
+    volumes:
+      - ../mysql_data_symfony:/var/lib/mysql
+      - ./:/code
+    networks:
+      - symfony_network
+
+  symfony_phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: symfony-phpmyadmin
+    ports:
+      - "8098:80"
+    environment:
+      PMA_HOST: symfony_mysql
+      MYSQL_ROOT_PASSWORD: symfony_root
+    networks:
+      - symfony_network
+
+networks:
+  symfony_network:

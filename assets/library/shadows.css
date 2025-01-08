@@ -1,0 +1,77 @@
+
+@import "tailwindcss";
+
+
+
+/* SHADOWS */
+
+/* colors.bg[white-0] = #ffffff */
+/* colors.primary[alpha-10] = #007bff1a */
+/* colors.neutral[alpha-16] = #1b1c1d29 */
+/* colors.red[alpha-10] = #ff00001a */
+/* colors.stroke[soft-200] = #e2e8f0 */
+/* colors.neutral[950] = #1a202c */
+/* colors.error[base] = #e53e3e */
+
+
+@utility regular-xs {
+    box-shadow: '0 1px 2px 0 #0a0d1408';
+  }
+  
+  @utility regular-sm {
+    box-shadow: '0 2px 4px #1b1c1d0a';
+  }
+  
+  @utility regular-md {
+    box-shadow: '0 16px 32px -12px #0e121b1a';
+  }
+  
+  @utility button-primary-focus {
+    box-shadow: '0 0 0 2px theme(colors.bg[white-0])',
+      '0 0 0 4px #007bff1a';
+  }
+  
+  @utility button-important-focus {
+    box-shadow: '0 0 0 2px #ffffff',
+      '0 0 0 4px #1b1c1d29';
+  }
+  
+  @utility button-error-focus {
+    box-shadow: '0 0 0 2px #ffffff',
+      '0 0 0 4px #e53e3e';
+  }
+  
+  @utility fancy-buttons-neutral {
+    box-shadow: '0 1px 2px 0 #1b1c1d7a',
+      '0 0 0 1px #242628';
+  }
+  
+  @utility fancy-buttons-primary {
+    box-shadow: '0 1px 2px 0 #0e121b3d',
+      '0 0 0 1px #007bff';
+  }
+  
+  @utility fancy-buttons-error {
+    box-shadow: '0 1px 2px 0 #0e121b3d',
+      '0 0 0 1px #e53e3e';
+  }
+  
+  @utility fancy-buttons-stroke {
+    box-shadow: '0 1px 3px 0 #0e121b1f',
+      '0 0 0 1px #e2e8f0';
+  }
+  
+  @utility toggle-switch {
+    box-shadow: '0 6px 10px 0 #0e121b0f',
+      '0 2px 4px 0 #0e121b08';
+  }
+  
+  @utility switch-thumb {
+    box-shadow: '0 4px 8px 0 #1b1c1d0f',
+      '0 2px 4px 0 #0e121b14';
+  }
+  
+  @utility tooltip {
+    box-shadow: '0 12px 24px 0 #0e121b0f',
+      '0 1px 2px 0 #0e121b08';
+  }

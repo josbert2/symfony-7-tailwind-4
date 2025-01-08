@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title ' | '~app_owner %}
+
+
+{% block stylesheets %}
+    {{ vite_entry_link_tags('proveedor') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ vite_entry_script_tags('app') }}
+    {#{% block importmap %}{{ importmap('app') }}{% endblock %}#}
+{% endblock %}
+
+
+{% block body %}
+
+{% endblock %}
+

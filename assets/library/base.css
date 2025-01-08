@@ -1,0 +1,12 @@
+
+@import "tailwindcss";
+@import "../library/fonts.css";
+
+@theme {
+    --font-display: "Avenir", "sans-serif";
+}
+
+
+body, html {
+    @apply font-display;
+}

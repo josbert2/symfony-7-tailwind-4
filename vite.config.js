@@ -16,6 +16,7 @@ export default defineConfig({
             input: {
                 app: "./assets/app.js",
                 proveedor: "./assets/proveedor/app.css",
+                admin: "./assets/admin/app.css",
                 theme: "./assets/app.css",
             },
         }

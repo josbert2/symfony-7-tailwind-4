@@ -19,8 +19,8 @@ class ProveedorController extends AbstractController
 
        $users = $em->getRepository(Usuario::class)->findBy(['email' => 'test@entrekids.cl']);
 
-       dump($users);
-       die();
+       
+      
 
        return $this->render('proveedor/index.html.twig', [
            'controller_name' => 'ProveedorController',

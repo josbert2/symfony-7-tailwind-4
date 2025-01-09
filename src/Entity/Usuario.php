@@ -20,9 +20,10 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     /**
-     * @var list<string> The user roles
+     * @var list<string> The user roles DC2Type:array)
      */
-    #[ORM\Column]
+    
+    #[ORM\Column(type: 'array')]
     private array $roles = [];
 
     /**
@@ -60,7 +61,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @see UserInterface
-     *
      * @return list<string>
      */
     public function getRoles(): array

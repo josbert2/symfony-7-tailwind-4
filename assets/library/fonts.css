@@ -104,7 +104,7 @@
   @utility label-sm {
     font-size: .875rem;
     line-height: 1.25rem;
-    letter-spacing: '-0.006em';
+    letter-spacing: -0.006em;
     font-weight: 500;
   }
   .text-label-sm{

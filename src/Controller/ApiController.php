@@ -28,15 +28,14 @@ class ApiController extends AbstractController
     }
 
 
-    #[Route('/login', name: 'api_login', methods: ['POST'])]
-    public function login(
-        Request $request,
-        UserAuthenticatorInterface $authenticator,
-        JWTTokenManagerInterface $jwtManager
-    ): JsonResponse {
-      
-
-        return new JsonResponse(['error' => 'Método no implementado'], 501);
+    #[Route('/api/login', name: 'api_login', methods: ['POST'])]
+    public function login()
+    {
+        $user = $this->getUser();
+        return new JsonResponse([
+            'email' => $user->getEmail(),
+            'roles' => $user->getRoles()
+        ]);
     }
 
 

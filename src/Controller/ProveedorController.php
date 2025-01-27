@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Usuario;
+use App\Entity\Proveedor; 
+
 
 class ProveedorController extends AbstractController
 {
@@ -18,8 +20,7 @@ class ProveedorController extends AbstractController
        // get all users 
 
        $users = $em->getRepository(Usuario::class)->findBy(['email' => 'test@entrekids.cl']);
-
-       
+       $f = $em->getRepository(Proveedor::class)->getAnyWayProveedor();
       
 
        return $this->render('proveedor/index.html.twig', [

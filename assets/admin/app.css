@@ -7,3 +7,8 @@
 @import "../library/colors.css";
 @import "../library/base.css";
 
+@media (min-width: 1024px) {
+    .lg\:grid-cols-\[auto\2c minmax\(0\2c 1fr\)\] {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+}

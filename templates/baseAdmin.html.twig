@@ -12,8 +12,16 @@
     {#{% block importmap %}{{ importmap('app') }}{% endblock %}#}
 {% endblock %}
 
+{% block content %}
+<div class="grid min-h-screen grid-cols-1 content-start items-start lg:grid-cols-[auto,minmax(0,1fr)]">
+    {% include 'includes/sidebarAdmin.html.twig' %}
+    <div class="shrink-0 w-[272px]"></div>
+    <div class="mx-auto flex w-full max-w-[1448px] flex-1 flex-col">
+        {% block body %}
 
-{% block body %}
-
+        {% endblock %}
+    </div>
+</div>
 {% endblock %}
+
 

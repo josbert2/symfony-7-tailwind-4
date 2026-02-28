@@ -1,0 +1,14 @@
+liip_imagine:
+    driver: "imagick"
+
+    filter_sets:
+        cache: ~
+
+        square_400:
+            quality: 90
+            format: webp
+            filters:
+                thumbnail:
+                    size: [400, 400]
+                    mode: outbound
+                    

@@ -6,12 +6,20 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@hotwired/stimulus": "^3.0.0",
+        "@hotwired/turbo": "^7.1.1 || ^8.0",
+        "@symfony/stimulus-bridge": "^3.2.0",
+        "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets",
         "sass-embedded": "^1.83.1",
         "vite": "^5.0",
         "vite-plugin-symfony": "^7.1"
     },
     "dependencies": {
+        "@inertiajs/react": "^2.3.16",
         "@tailwindcss/vite": "^4.0.0-beta.8",
+        "@vitejs/plugin-react": "^5.1.4",
+        "react": "^19.2.4",
+        "react-dom": "^19.2.4",
         "tailwindcss": "^4.0.0-beta.8"
     }
 }

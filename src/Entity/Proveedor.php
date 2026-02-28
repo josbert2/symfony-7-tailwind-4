@@ -2,666 +2,441 @@
 
 namespace App\Entity;
 
-use App\Repository\ProveedorRepository;
-use Doctrine\DBAL\Types\Types;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: ProveedorRepository::class)]
-#[ORM\Table(name: 'proveedor', indexes: [new ORM\Index(name: 'activo', columns: ['activo'])])]
+    #[ORM\Table(name: 'activo')]})
+    #[ORM\Entity(repositoryClass: App\Repository\ProveedorRepository::class)]
 class Proveedor
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: Types::INTEGER)]
-    private ?int $id = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $tipo = null;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private ?string $nombre = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $razonSocial = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $rut = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $sitioWeb = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $email = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $telefono = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $emailSoporte = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $telefonoSoporte = null;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $descripcion = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $facebook = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $twitter = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $instagram = null;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $tips = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $emailNotificaciones = null;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private int $cobroVariable = 0;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private int $cobroFijo = 0;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $notificacionCompra = true;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $resumenAsistencia = true;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $calendarioSemanal = true;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $quiebreStock = true;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $serieTerminando = true;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $emailCompra = true;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $politicas = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $codigoBarra = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $boletaElectronica = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $cortesias = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $codigosPropios = false;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $periodoFacturacion = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaInformacion = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $butacas = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $boleteria = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $productos = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $retiros = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $multivende = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $confirmacionAutomatica = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $fulfillment = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $vistaClientes = false;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private ?bool $locales = false;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private ?bool $vistaEntradas = null;
-
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    private ?bool $vistaDevolucion = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $sitioPropio = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $comisionTodoEvento = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $preregistro = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaRut = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaNombre = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaTelefono = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaEmail = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaDireccion = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $entregaFechaNacimiento = false;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $idSeller = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $tokenSeller = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $activo = false;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $ultimaActualizacion = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $usuarioActualizacion = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $productosActualizacion = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $usuarioProductosActualizacion = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $stockActualizacion = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $usuarioStockActualizacion = null;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $accessToken = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $expiresAt = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $refreshToken = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $refreshTokenExpiresAt = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $merchantId = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $connectionId = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $syncNuevos = false;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $listaPrecioId = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $syncSiemprePrecio = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $syncSiemprePrecioOferta = false;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $listaPrecioOfertaId = null;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaInicioOferta = null;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaTerminoOferta = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $tarifaPrincipal = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $tarifaSecundaria = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaMultivendeSync = null;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $paginaMultivendeSync = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaMultivendeSyncVariante = null;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $paginaMultivendeSyncVariante = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaMultivendeSyncLink = null;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $paginaMultivendeSyncLink = null;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaMultivendeSyncCarga = null;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private ?int $paginaMultivendeSyncCarga = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $optionMultivendeSyncCarga = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $configuradoMultivende = false;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private ?\DateTimeInterface $fechaUltimaLiquidacion = null;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $urlResenaProveedor = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $urlResenaLocal = false;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $urlResenaActividad = false;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $urlResena = null;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private ?string $correoResenaSubject = null;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private ?string $correoResenaBody = null;
-
-    /**
-     * @Assert\Valid
-     * @ORM\OneToOne(targetEntity="VichFile", inversedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\Column(name: 'id', type: 'integer')]
+    private $id;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $tipo;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $nombre;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $razonSocial;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $rut;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $sitioWeb;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $email;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $telefono;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $emailSoporte;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $telefonoSoporte;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $descripcion;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $facebook;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $twitter;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $instagram;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $tips;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $emailNotificaciones;
+
+    #[ORM\Column(type: 'integer')]
+    private $cobroVariable = 0;
+
+    #[ORM\Column(type: 'integer')]
+    private $cobroFijo = 0;
+
+    #[ORM\Column(type: 'boolean')]
+    private $notificacionCompra = true;
+
+    #[ORM\Column(type: 'boolean')]
+    private $resumenAsistencia = true;
+
+    #[ORM\Column(type: 'boolean')]
+    private $calendarioSemanal = true;
+
+    #[ORM\Column(type: 'boolean')]
+    private $quiebreStock = true;
+
+    #[ORM\Column(type: 'boolean')]
+    private $serieTerminando = true;
+
+    #[ORM\Column(type: 'boolean')]
+    private $emailCompra = true;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $politicas;
+
+    #[ORM\Column(type: 'boolean')]
+    private $codigoBarra = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $boletaElectronica = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $cortesias = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $codigosPropios = false;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $periodoFacturacion;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaInformacion = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $butacas = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $boleteria = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $productos = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $retiros = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $multivende = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $confirmacionAutomatica = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $fulfillment = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $vistaClientes = false;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $locales = false;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $vistaEntradas;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $vistaDevolucion;
+
+    #[ORM\Column(type: 'boolean')]
+    private $sitioPropio = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $comisionTodoEvento = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $recaudacionPropia = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $preregistro = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaRut = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaNombre = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaTelefono = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaEmail = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaDireccion = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $entregaFechaNacimiento = false;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $idSeller;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $tokenSeller;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $codigoComercioWebpay;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $codigoComercioOneClick;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $bsaleToken;
+
+    #[ORM\Column(type: 'boolean')]
+    private $activo = false;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $ultimaActualizacion;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $usuarioActualizacion;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $productosActualizacion;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $usuarioProductosActualizacion;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $stockActualizacion;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $usuarioStockActualizacion;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $accessToken;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $expiresAt;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $refreshToken;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $refreshTokenExpiresAt;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $merchantId;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $connectionId;
+
+    #[ORM\Column(type: 'boolean')]
+    private $syncNuevos = false;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $listaPrecioId;
+
+    #[ORM\Column(type: 'boolean')]
+    private $syncSiemprePrecio = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $syncSiemprePrecioOferta = false;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $listaPrecioOfertaId;
+
+    #[ORM\Column(type: 'date', nullable: true)]
+    private $fechaInicioOferta;
+
+    #[ORM\Column(type: 'date', nullable: true)]
+    private $fechaTerminoOferta;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $tarifaPrincipal;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $tarifaSecundaria;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $fechaMultivendeSync;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $paginaMultivendeSync;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $fechaMultivendeSyncVariante;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $paginaMultivendeSyncVariante;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $fechaMultivendeSyncLink;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $paginaMultivendeSyncLink;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $fechaMultivendeSyncCarga;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $paginaMultivendeSyncCarga;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $optionMultivendeSyncCarga;
+
+    #[ORM\Column(type: 'boolean')]
+    private $configuradoMultivende = false;
+
+    #[ORM\Column(type: 'date', nullable: true)]
+    private $fechaUltimaLiquidacion;
+
+    #[ORM\Column(type: 'boolean')]
+    private $urlResenaProveedor = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $urlResenaLocal = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $urlResenaActividad = false;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $urlResena;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $correoResenaSubject;
+
+    #[ORM\Column(type: 'text', nullable: true)]
+    private $correoResenaBody;
+
+//      * @Assert\Valid
+    #[ORM\OneToOne(targetEntity: 'VichFile', inversedBy: 'proveedor')]
+
     protected $logo;
 
-    /**
-     * @Assert\Valid
-     * @ORM\OneToOne(targetEntity="VichFile", inversedBy="proveedorFoto", cascade={"persist","remove"})
-     */
+//      * @Assert\Valid
+    #[ORM\OneToOne(targetEntity: 'VichFile', inversedBy: 'proveedorFoto')]
+
     protected $foto;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Direccion", inversedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'Direccion', inversedBy: 'proveedor')]
     protected $direccion;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Market", inversedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Market', inversedBy: 'proveedor')]
     protected $market;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Plan", inversedBy="proveedores")
-     */
+    #[ORM\ManyToOne(targetEntity: 'Plan', inversedBy: 'proveedores')]
     protected $plan;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Staff", inversedBy="proveedores")
-     */
+    #[ORM\ManyToOne(targetEntity: 'Staff', inversedBy: 'proveedores')]
     protected $staff;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Carrier", inversedBy="proveedoresDefault")
-     */
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Carrier', inversedBy: 'proveedoresDefault')]
     protected $carrierDefault;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Carrier", inversedBy="proveedores")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\Carrier', inversedBy: 'proveedores')]
     protected $carriers;
 
-    /**
-     * @ORM\OneToOne(targetEntity="Cuenta", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToOne(targetEntity: 'App\Entity\Cuenta', mappedBy: 'proveedor')]
     protected $cuenta;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Tag", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'Tag', mappedBy: 'proveedor')]
     protected $tags;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Staff", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Staff', mappedBy: 'proveedor')]
     protected $staffs;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Actividad", mappedBy="proveedor", cascade={"persist"})
-     */
+    #[ORM\OneToMany(targetEntity: 'Actividad', mappedBy: 'proveedor')]
     protected $actividades;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Promocion", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'PromocionLista', mappedBy: 'proveedor')]
+    protected $promocionListas;
+
+    #[ORM\OneToMany(targetEntity: 'Promocion', mappedBy: 'proveedor')]
     protected $promociones;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Grupo", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'Grupo', mappedBy: 'proveedor')]
     protected $grupos;
 
-    /**
-     * @ORM\OneToMany(targetEntity="CodigoExterno", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'CodigoExterno', mappedBy: 'proveedor')]
     protected $codigosExternos;
 
-    /**
-     * @ORM\OneToMany(targetEntity="CodigoExterno", mappedBy="owner")
-     */
+    #[ORM\OneToMany(targetEntity: 'CodigoExterno', mappedBy: 'owner')]
     protected $ownerCodigosExternos;
 
-    /**
-     * @ORM\OneToMany(targetEntity="ProveedorRut", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'ProveedorRut', mappedBy: 'proveedor')]
     protected $ruts;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Mapa", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'Mapa', mappedBy: 'proveedor')]
     protected $mapas;
 
-    /**
-     * @ORM\OneToMany(targetEntity="ProveedorMarket", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ProveedorMarket', mappedBy: 'proveedor')]
     protected $proveedorMarkets;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Sucursal", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Sucursal', mappedBy: 'proveedor')]
     protected $sucursales;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Bodega", mappedBy="proveedor", cascade={"persist"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Bodega', mappedBy: 'proveedor')]
     protected $bodegas;
 
-    /**
-     * @ORM\OneToMany(targetEntity="ProveedorArchivo", mappedBy="proveedor", cascade={"persist","remove"}, orphanRemoval=true)
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\ProveedorArchivo', mappedBy: 'proveedor', orphanRemoval: true)]
     protected $archivos;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Paquete", mappedBy="proveedor")
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Paquete', mappedBy: 'proveedor')]
     protected $paquetes;
 
-    /**
-     * @ORM\OneToMany(targetEntity="MultivendeMap", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\MultivendeMap', mappedBy: 'proveedor')]
     protected $multivendeMaps;
 
-    /**
-     * @ORM\OneToMany(targetEntity="TransaccionDetalle", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\TransaccionDetalle', mappedBy: 'proveedor')]
     protected $transaccionDetalles;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Liquidacion", mappedBy="proveedor", cascade={"persist","remove"})
-     */
+    #[ORM\OneToMany(targetEntity: 'App\Entity\Liquidacion', mappedBy: 'proveedor')]
     protected $liquidaciones;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Paquete", mappedBy="proveedores")
-     */
+    #[ORM\ManyToMany(targetEntity: 'App\Entity\Paquete', mappedBy: 'proveedores')]
     protected $paquetesMulti;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Cliente", mappedBy="favoritos")
-     */
+    #[ORM\ManyToMany(targetEntity: 'Cliente', mappedBy: 'favoritos')]
     protected $clienteFavoritos;
 
-    /**
-     * @Gedmo\Slug(fields={"nombre"})
-     * @ORM\Column(length=128, unique=true)
-     */
-    private ?string $slug = null;
+    #[ORM\OneToMany(targetEntity: 'RelojIniciado', mappedBy: 'proveedor')]
+    private $relojesIniciados;
 
-    /**
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    protected ?\DateTimeInterface $created = null;
+    #[ORM\OneToMany(targetEntity: 'RelojConfiguracion', mappedBy: 'proveedor')]
+    private $relojConfiguraciones;
 
-    /**
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
-     */
-    protected ?\DateTimeInterface $updated = null;
+    #[Gedmo\Slug()]
+    #[ORM\Column(length: 128, unique: true)]
+    private $slug;
 
-    /**
-     * @ORM\Column(type="datetime", nullable=true)
-     */
-    protected ?\DateTimeInterface $deleted = null;
+    #[Gedmo\Timestampable(on: 'create')]
+    #[ORM\Column(type: 'datetime')]
+    protected $created;
 
-    /**
-     * @ORM\OneToMany(targetEntity=StockDia::class, mappedBy="proveedor")
-     */
+    #[Gedmo\Timestampable(on: 'update')]
+    #[ORM\Column(type: 'datetime')]
+    protected $updated;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    protected $deleted;
+
+    #[ORM\OneToMany(mappedBy: 'proveedor', targetEntity: StockDia::class)]
     private $stockDias;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $temporizadores = false;
+    #[ORM\Column(type: 'boolean')]
+    private $temporizadores = false;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $cancellationInsurance = false;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $whatsapp = false;
+    #[ORM\Column(type: 'boolean')]
+    private $cancellationInsurance = false;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $attendance = false;
+    #[ORM\Column(type: 'boolean')]
+    private $whatsapp = false;
+
+    #[ORM\Column(type: 'boolean')]
+    private $attendance = false;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $eventPublishingVersion = 1;
+
+//      * @ORM\OneToMany(
+//      *   targetEntity="App\Entity\SuscripcionProveedor",
+//      *   mappedBy="proveedor"
+//      * )
+
+    private $suscripciones;
 
     public function __construct()
     {
@@ -686,6 +461,7 @@ class Proveedor
         $this->paquetesMulti = new ArrayCollection();
         $this->stockDias = new ArrayCollection();
         $this->liquidaciones = new ArrayCollection();
+        $this->promocionListas = new ArrayCollection();
     }
 
     public function getCodigo()
@@ -716,14 +492,13 @@ class Proveedor
         return $completitud;
     }
 
-    /**
-     * Set logo
-     *
-     * @param \VichFile $logo
-     *
-     * @return Proveedor
-     */
-    public function setLogo(\VichFile $logo = NULL)
+//      * Set logo
+
+//      * @param \App\Entity\VichFile $logo
+
+//      * @return Proveedor
+
+    public function setLogo(\App\Entity\VichFile $logo = NULL)
     {
         $logo->setProveedor($this);
         $this->logo = $logo;
@@ -731,14 +506,13 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * Set foto.
-     *
-     * @param \VichFile|null $foto
-     *
-     * @return Proveedor
-     */
-    public function setFoto(\VichFile $foto = NULL)
+//      * Set foto.
+
+//      * @param \App\Entity\VichFile|null $foto
+
+//      * @return Proveedor
+
+    public function setFoto(\App\Entity\VichFile $foto = NULL)
     {
         $foto->setProveedorFoto($this);
         $this->foto = $foto;
@@ -746,14 +520,13 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * Set cuenta.
-     *
-     * @param \Cuenta|null $cuenta
-     *
-     * @return Proveedor
-     */
-    public function setCuenta(\Cuenta $cuenta = NULL)
+//      * Set cuenta.
+
+//      * @param \App\Entity\Cuenta|null $cuenta
+
+//      * @return Proveedor
+
+    public function setCuenta(\App\Entity\Cuenta $cuenta = NULL)
     {
         $cuenta->setProveedor($this);
         $this->cuenta = $cuenta;
@@ -802,7 +575,6 @@ class Proveedor
     {
         $ultimaLiquidacion = NULL;
         $liquidaciones = $this->getLiquidaciones()->toArray();
-//        dump($liquidaciones);
         /** @var Liquidacion $liquidacion */
         foreach (array_reverse($liquidaciones) as $liquidacion) {
             if ($liquidacion->getFechaAprobado()) {
@@ -1271,9 +1043,8 @@ class Proveedor
         return $this->cuenta;
     }
 
-    /**
-     * @return Collection|Tag[]
-     */
+//      * @return Collection|Tag[]
+
     public function getTags(): Collection
     {
         return $this->tags;
@@ -1293,7 +1064,6 @@ class Proveedor
     {
         if ($this->tags->contains($tag)) {
             $this->tags->removeElement($tag);
-            // set the owning side to null (unless already changed)
             if ($tag->getProveedor() === $this) {
                 $tag->setProveedor(NULL);
             }
@@ -1302,9 +1072,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Staff[]
-     */
+//      * @return Collection|Staff[]
+
     public function getStaffs(): Collection
     {
         return $this->staffs;
@@ -1333,9 +1102,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Actividad[]
-     */
+//      * @return Collection|Actividad[]
+
     public function getActividades(): Collection
     {
         return $this->actividades;
@@ -1355,7 +1123,6 @@ class Proveedor
     {
         if ($this->actividades->contains($actividade)) {
             $this->actividades->removeElement($actividade);
-            // set the owning side to null (unless already changed)
             if ($actividade->getProveedor() === $this) {
                 $actividade->setProveedor(NULL);
             }
@@ -1364,9 +1131,24 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Promocion[]
-     */
+//      * @return Collection|PromocionLista[]
+
+    public function getAllPromocionListas(): Collection
+    {
+        return $this->promocionListas;
+    }
+
+//      * @return Collection|PromocionLista[]
+
+    public function getPromocionListas(): Collection
+    {
+        return $this->promocionListas->filter(function (PromocionLista $id) {
+            return $id->getDeleted() === null;
+        );
+    }
+
+//      * @return Collection|Promocion[]
+
     public function getPromociones(): Collection
     {
         return $this->promociones;
@@ -1395,9 +1177,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Grupo[]
-     */
+//      * @return Collection|Grupo[]
+
     public function getGrupos(): Collection
     {
         return $this->grupos;
@@ -1426,9 +1207,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|CodigoExterno[]
-     */
+//      * @return Collection|CodigoExterno[]
+
     public function getCodigosExternos(): Collection
     {
         return $this->codigosExternos;
@@ -1457,9 +1237,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|ProveedorRut[]
-     */
+//      * @return Collection|ProveedorRut[]
+
     public function getRuts(): Collection
     {
         return $this->ruts;
@@ -1488,9 +1267,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Mapa[]
-     */
+//      * @return Collection|Mapa[]
+
     public function getMapas(): Collection
     {
         return $this->mapas;
@@ -1519,9 +1297,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|ProveedorMarket[]
-     */
+//      * @return Collection|ProveedorMarket[]
+
     public function getProveedorMarkets(): Collection
     {
         return $this->proveedorMarkets;
@@ -1550,9 +1327,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Cliente[]
-     */
+//      * @return Collection|Cliente[]
+
     public function getClienteFavoritos(): Collection
     {
         return $this->clienteFavoritos;
@@ -1614,9 +1390,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|CodigoExterno[]
-     */
+//      * @return Collection|CodigoExterno[]
+
     public function getOwnerCodigosExternos(): Collection
     {
         return $this->ownerCodigosExternos;
@@ -1669,9 +1444,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Sucursal[]
-     */
+//      * @return Collection|Sucursal[]
+
     public function getSucursales(): Collection
     {
         return $this->sucursales;
@@ -1700,9 +1474,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|ProveedorArchivo[]
-     */
+//      * @return Collection|ProveedorArchivo[]
+
     public function getArchivos(): Collection
     {
         return $this->archivos;
@@ -1731,9 +1504,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Bodega[]
-     */
+//      * @return Collection|Bodega[]
+
     public function getBodegas(): Collection
     {
         return $this->bodegas;
@@ -1786,9 +1558,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Carrier[]
-     */
+//      * @return Collection|Carrier[]
+
     public function getCarriers(): Collection
     {
         return $this->carriers;
@@ -1836,9 +1607,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Paquete[]
-     */
+//      * @return Collection|Paquete[]
+
     public function getPaquetes(): Collection
     {
         return $this->paquetes;
@@ -1951,9 +1721,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|MultivendeMap[]
-     */
+//      * @return Collection|MultivendeMap[]
+
     public function getMultivendeMaps(): Collection
     {
         return $this->multivendeMaps;
@@ -2281,9 +2050,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|TransaccionDetalle[]
-     */
+//      * @return Collection|TransaccionDetalle[]
+
     public function getTransaccionDetalles(): Collection
     {
         return $this->transaccionDetalles;
@@ -2347,9 +2115,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Paquete[]
-     */
+//      * @return Collection|Paquete[]
+
     public function getPaquetesMulti(): Collection
     {
         return $this->paquetesMulti;
@@ -2374,9 +2141,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|StockDia[]
-     */
+//      * @return Collection|StockDia[]
+
     public function getStockDias(): Collection
     {
         return $this->stockDias;
@@ -2416,9 +2182,8 @@ class Proveedor
         return $this;
     }
 
-    /**
-     * @return Collection|Liquidacion[]
-     */
+//      * @return Collection|Liquidacion[]
+
     public function getLiquidaciones(): Collection
     {
         return $this->liquidaciones;
@@ -2739,5 +2504,85 @@ class Proveedor
         $this->correoResenaBody = $correoResenaBody;
 
         return $this;
+    }
+
+    public function getRecaudacionPropia(): ?bool
+    {
+        return $this->recaudacionPropia;
+    }
+
+    public function setRecaudacionPropia(bool $recaudacionPropia): self
+    {
+        $this->recaudacionPropia = $recaudacionPropia;
+
+        return $this;
+    }
+
+    public function getCodigoComercioWebpay(): ?string
+    {
+        return $this->codigoComercioWebpay;
+    }
+
+    public function setCodigoComercioWebpay(?string $codigoComercioWebpay): self
+    {
+        $this->codigoComercioWebpay = $codigoComercioWebpay;
+
+        return $this;
+    }
+
+    public function getCodigoComercioOneClick(): ?string
+    {
+        return $this->codigoComercioOneClick;
+    }
+
+    public function setCodigoComercioOneClick(?string $codigoComercioOneClick): self
+    {
+        $this->codigoComercioOneClick = $codigoComercioOneClick;
+
+        return $this;
+    }
+
+    public function getBsaleToken(): ?string
+    {
+        return $this->bsaleToken;
+    }
+
+    public function setBsaleToken(?string $bsaleToken): self
+    {
+        $this->bsaleToken = $bsaleToken;
+
+        return $this;
+    }
+
+    public function addPromocionLista(PromocionLista $promocionLista): self
+    {
+        if (!$this->promocionListas->contains($promocionLista)) {
+            $this->promocionListas[] = $promocionLista;
+            $promocionLista->setProveedor($this);
+        }
+
+        return $this;
+    }
+
+    public function removePromocionLista(PromocionLista $promocionLista): self
+    {
+        if ($this->promocionListas->removeElement($promocionLista)) {
+            // set the owning side to null (unless already changed)
+            if ($promocionLista->getProveedor() === $this) {
+                $promocionLista->setProveedor(null);
+            }
+        }
+
+        return $this;
+    }
+  
+    public function getRelojesIniciados()
+    {
+        return $this->relojesIniciados;
+    }
+    
+    public function getRelojConfiguraciones()
+    {
+        return $this->relojConfiguraciones;
     }
 }

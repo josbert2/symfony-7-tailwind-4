@@ -8,9 +8,20 @@ RUN apt-get update && \
 WORKDIR /var/www/html
 
 # Instalar wkhtmltopdf
-RUN apt-get update && \
-    apt-get install -y wkhtmltopdf \
+RUN apt-get update && apt-get install -y wget \
+    && wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_amd64.deb \
+    && apt-get install -y ./wkhtmltox_0.12.6.1-3.bookworm_amd64.deb \
+    && rm wkhtmltox_0.12.6.1-3.bookworm_amd64.deb \
     && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# --- Imagick + WEBP support (LiipImagineBundle) ---
+RUN apt-get update && apt-get install -y \
+    libmagickwand-dev \
+    libwebp-dev \
+    --no-install-recommends \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar dependencias necesarias para Symfony

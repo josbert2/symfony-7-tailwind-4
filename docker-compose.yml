@@ -20,7 +20,7 @@ services:
     image: mariadb:10.4.3
     container_name: symfony-mysql
     ports:
-      - "3307:3308"
+      - "3377:3308"
     environment:
       MYSQL_ROOT_PASSWORD: symfony_root
       MYSQL_DATABASE: symfony_database

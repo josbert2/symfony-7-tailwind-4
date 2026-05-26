@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(f'{x[\\\\\"type\\\\\"]:8} {x[\\\\\"size\\\\\"]:>8}  {x[\\\\\"name\\\\\"]}'\\) for x in d]\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(f'{x[\\\\\"name\\\\\"]}'\\) for x in d]\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/cosscom/coss/main/README.md\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/cosscom/coss/main/LICENSING.md\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/cosscom/coss/main/package.json\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(f'{x[\\\\\"type\\\\\"]:8} {x[\\\\\"name\\\\\"]}'\\) for x in d]\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/cosscom/coss/main/packages/ui/package.json\")",
+      "Bash(curl -sI -o /dev/null -w \"@base-ui/react -> HTTP %{http_code}\\\\n\" https://registry.npmjs.org/@base-ui%2Freact)",
+      "Bash(curl -sI -o /dev/null -w \"@base-ui-components/react -> HTTP %{http_code}\\\\n\" https://registry.npmjs.org/@base-ui-components%2Freact)",
+      "Bash(curl -sI http://127.0.0.1:5173/build/assets/fonts/Avenir/AvenirRegular.otf)"
+    ]
+  }
+}

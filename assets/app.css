@@ -1,5 +1,14 @@
 @import "tailwindcss";
 @import "./library/colors.css";
+@import "./library/coss-tokens.css";
+@import "./library/fonts.css";
+
+@source "./pages/**/*.{js,jsx,ts,tsx}";
+@source "../templates/**/*.{html.twig,twig}";
+
+@theme {
+  --font-sans: "Avenir", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
   /*
     Namespace	Utilities
